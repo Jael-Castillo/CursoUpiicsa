@@ -2,15 +2,20 @@ package itokcenter.com.controlesbasicos;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.AppCompatSeekBar;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.SeekBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
     Toolbar toolbar;
+    AppCompatSeekBar seekBar;
+    TextView txtDataUno, txtDataSeg;
     String TAG = "MainActivity";
 
     @Override
@@ -19,12 +24,35 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
+        seekBar = (AppCompatSeekBar) findViewById(R.id.seekBar);
+        txtDataUno = (TextView) findViewById(R.id.txtData);
+        txtDataSeg = (TextView) findViewById(R.id.txtSecondData);
+
         toolbar.setTitle("Titulo de mi toolbar");
         toolbar.setSubtitle("Subtitulo de mi toolbar");
         setSupportActionBar(toolbar);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setIcon(R.mipmap.ic_launcher);
+
+        seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int position, boolean b) {
+                txtDataUno.setText("" + position);
+                txtDataSeg.setTranslationY(position);
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
+            }
+        });
+
     }
 
     @Override
