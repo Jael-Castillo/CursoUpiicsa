@@ -7,6 +7,8 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.SeekBar;
 import android.widget.TextView;
@@ -57,6 +59,23 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup radioGroup, int id) {
+                switch (id) {
+                    case R.id.rdbtnUno:
+                        Log.e("rdgroup", getString(R.string.optionuno));
+                        break;
+                    case R.id.rdbtnDos:
+                        Log.e("rdgroup", getString(R.string.optiondos));
+                        break;
+                    case R.id.rdbtnTres:
+                        Log.e("rdgroup", getString(R.string.optiontres));
+                        break;
+                }
+            }
+        });
+
     }
 
     @Override
@@ -84,4 +103,11 @@ public class MainActivity extends AppCompatActivity {
                 return super.onOptionsItemSelected(item);
         }
     }
+
+    public void getOption(View v) {
+        int selectedId = radioGroup.getCheckedRadioButtonId();
+        RadioButton radioButton = (RadioButton) findViewById(selectedId);
+        Toast.makeText(MainActivity.this, radioButton.getText().toString(), Toast.LENGTH_SHORT).show();
+    }
+
 }
