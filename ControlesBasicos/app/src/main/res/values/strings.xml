@@ -5,4 +5,10 @@
     <string name="optiontres">Opción 3</string>
     <string name="getoption">Dame la opción</string>
     <string name="vibrar">Vibrar</string>
+    <string name="guardar_datos">Guardar Datos</string>
+    <string name="nombre">Nombre</string>
+    <string name="edad">Edad</string>
+    <string name="mail">Mail</string>
+    <string name="twitter">Twitter</string>
+    <string name="mostrar_datos">Mostrar Datos</string>
 </resources>
