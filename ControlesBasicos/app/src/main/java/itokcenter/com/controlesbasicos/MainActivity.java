@@ -1,6 +1,8 @@
 package itokcenter.com.controlesbasicos;
 
+import android.content.Context;
 import android.os.Bundle;
+import android.os.Vibrator;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.AppCompatSeekBar;
 import android.support.v7.widget.Toolbar;
@@ -108,6 +110,11 @@ public class MainActivity extends AppCompatActivity {
         int selectedId = radioGroup.getCheckedRadioButtonId();
         RadioButton radioButton = (RadioButton) findViewById(selectedId);
         Toast.makeText(MainActivity.this, radioButton.getText().toString(), Toast.LENGTH_SHORT).show();
+    }
+
+    public void vibrar(View v) {
+        Vibrator vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+        vibrator.vibrate(1000);
     }
 
 }

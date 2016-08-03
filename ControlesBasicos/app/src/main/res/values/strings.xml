@@ -4,4 +4,5 @@
     <string name="optiondos">Opción 2</string>
     <string name="optiontres">Opción 3</string>
     <string name="getoption">Dame la opción</string>
+    <string name="vibrar">Vibrar</string>
 </resources>
