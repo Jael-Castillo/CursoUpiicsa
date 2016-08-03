@@ -44,4 +44,16 @@ public class DatosActivity extends AppCompatActivity {
         editor.apply();
     }
 
+    public void recuperarDatos(View v) {
+        String nombreStr = sharedPreferences.getString(getString(R.string.nombre), "Pepe La rana");
+        int edadInt = sharedPreferences.getInt(getString(R.string.edad), 33);
+        String mailStr = sharedPreferences.getString(getString(R.string.mail), "pepe@larana.com");
+        String twitterStr = sharedPreferences.getString(getString(R.string.twitter), "@pepelarana");
+
+        txtName.setText(nombreStr);
+        txtAge.setText("" + edadInt);
+        txtMail.setText(mailStr);
+        txtTwitter.setText(twitterStr);
+    }
+
 }

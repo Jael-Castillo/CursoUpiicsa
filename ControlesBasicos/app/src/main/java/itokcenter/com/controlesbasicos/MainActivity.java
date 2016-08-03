@@ -1,6 +1,7 @@
 package itokcenter.com.controlesbasicos;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Vibrator;
 import android.support.v7.app.AppCompatActivity;
@@ -115,6 +116,11 @@ public class MainActivity extends AppCompatActivity {
     public void vibrar(View v) {
         Vibrator vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
         vibrator.vibrate(1000);
+    }
+
+    public void sendView(View v) {
+        Intent intent = new Intent(MainActivity.this, DatosActivity.class);
+        startActivity(intent);
     }
 
 }
