@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -33,4 +34,14 @@ public class DatosActivity extends AppCompatActivity {
         txtTwitter = (TextView) findViewById(R.id.txtTwitter);
 
     }
+
+    public void guardarDatos(View v) {
+        editor = sharedPreferences.edit();
+        editor.putString(getString(R.string.nombre), edtxName.getText().toString());
+        editor.putInt(getString(R.string.edad), Integer.parseInt(edtxAge.getText().toString()));
+        editor.putString(getString(R.string.mail), edtxMail.getText().toString());
+        editor.putString(getString(R.string.twitter), edtxTwitter.getText().toString());
+        editor.apply();
+    }
+
 }
