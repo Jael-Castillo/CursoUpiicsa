@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">ControlesBasicos</string>
+    <string name="optionuno">Opción 1</string>
+    <string name="optiondos">Opción 2</string>
+    <string name="optiontres">Opción 3</string>
+    <string name="getoption">Dame la opción</string>
 </resources>

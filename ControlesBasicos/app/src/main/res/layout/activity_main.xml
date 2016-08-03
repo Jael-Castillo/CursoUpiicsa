@@ -60,4 +60,42 @@
         android:layout_marginStart="@dimen/activity_horizontal_margin"
         android:max="100" />
 
+    <RadioGroup
+        android:id="@+id/rdGroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <RadioButton
+            android:id="@+id/rdbtnUno"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:checked="true"
+            android:text="@string/optionuno" />
+
+        <RadioButton
+            android:id="@+id/rdbtnDos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:text="@string/optiondos" />
+
+        <RadioButton
+            android:id="@+id/rdbtnTres"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:text="@string/optiontres" />
+
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/btnGetOptions"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/activity_horizontal_margin"
+        android:text="@string/getoption"
+        android:onClick=""/>
+
 </LinearLayout>

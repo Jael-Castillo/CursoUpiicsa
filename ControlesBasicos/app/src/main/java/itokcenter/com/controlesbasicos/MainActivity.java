@@ -7,6 +7,7 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.RadioGroup;
 import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -16,6 +17,7 @@ public class MainActivity extends AppCompatActivity {
     Toolbar toolbar;
     AppCompatSeekBar seekBar;
     TextView txtDataUno, txtDataSeg;
+    RadioGroup radioGroup;
     String TAG = "MainActivity";
 
     @Override
@@ -27,6 +29,8 @@ public class MainActivity extends AppCompatActivity {
         seekBar = (AppCompatSeekBar) findViewById(R.id.seekBar);
         txtDataUno = (TextView) findViewById(R.id.txtData);
         txtDataSeg = (TextView) findViewById(R.id.txtSecondData);
+
+        radioGroup = (RadioGroup) findViewById(R.id.rdGroup);
 
         toolbar.setTitle("Titulo de mi toolbar");
         toolbar.setSubtitle("Subtitulo de mi toolbar");
