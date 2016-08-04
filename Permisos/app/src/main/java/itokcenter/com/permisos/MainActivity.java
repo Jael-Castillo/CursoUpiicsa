@@ -3,11 +3,15 @@ package itokcenter.com.permisos;
 import android.Manifest;
 import android.content.DialogInterface;
 import android.content.pm.PackageManager;
+import android.database.Cursor;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -17,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
     TextView txtSMS;
     String[] permisos = {Manifest.permission.READ_SMS};
     int REQUEST_CODE = 1;
-
+android
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,6 +39,17 @@ public class MainActivity extends AppCompatActivity {
             readSMS();
         }
 
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        btnReadSMS.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                readSMS();
+            }
+        });
     }
 
     @Override
@@ -68,7 +83,27 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void readSMS() {
+        Uri uri = Uri.parse("content://sms/inbox");
+        Cursor cursor = getContentResolver().query(uri, null, null, null, null);
+        if (cursor.moveToFirst()) {
+            //TODO
+            for (int i = 0; i < cursor.getColumnCount(); i++) {
+                String columnName = cursor.getColumnName(i);
+                Log.e("Column", columnName);
+            }
 
+            for (int i = 0; i < cursor.getCount(); i++) {
+                String address =
+                        cursor.getString(cursor.getColumnIndexOrThrow("address"));
+                String body =
+                        cursor.getString(cursor.getColumnIndexOrThrow("body"));
+                txtSMS.append("\n" + address + " : " + body);
+                cursor.moveToNext();
+            }
+
+        } else {
+            cursor.close();
+        }
     }
 
 }
