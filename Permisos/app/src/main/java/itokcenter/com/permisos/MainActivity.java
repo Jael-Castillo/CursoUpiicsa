@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
     TextView txtSMS;
     String[] permisos = {Manifest.permission.READ_SMS};
     int REQUEST_CODE = 1;
-android
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
