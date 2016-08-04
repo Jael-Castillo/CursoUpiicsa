@@ -28,12 +28,13 @@ public class DBHelper extends SQLiteOpenHelper {
     }
 
     @Override
-    public void onCreate(SQLiteDatabase sqLiteDatabase) {
-
+    public void onCreate(SQLiteDatabase db) {
+        db.execSQL(sqliteCreate);
     }
 
     @Override
-    public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
-
+    public void onUpgrade(SQLiteDatabase db, int oldVersion, int currentVersion) {
+        db.execSQL("DROP TABLE IF EXIST CURSO");
+        db.execSQL(sqliteCreate);
     }
 }
