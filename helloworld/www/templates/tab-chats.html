@@ -1,0 +1,11 @@
+<ion-view view-title="Chats">
+  <ion-content>
+    <ion-list>
+      <ion-item ng-repeat="estacion in estaciones" type="item-text-wrap">
+          <h2>Nombre: {{estacion.name}}</h2>
+          <p>Espacios libres - {{estacion.empty_slots}}</p>
+          <p>Bicicletas disponibles - {{estacion.free_bikes}}</p>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>
