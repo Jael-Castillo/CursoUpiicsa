@@ -13,20 +13,26 @@ angular.module('starter.controllers', [])
 
 })
 
-.controller('ChatsCtrl', function($scope, $http) {
+.controller('ChatsCtrl', function($scope, $http, $rootScope) {
 
-$http.get('http://api.citybik.es/v2/networks/ecobici')
-      .success(function(response){
-        $scope.estaciones = response.network.stations
-      })
-      .error(function(error){
-        console.log("Error" + error)
-      });
+  $scope.getData = function(){
+    $scope.estaciones = []
+    $http.get('http://api.citybik.es/v2/networks/ecobici')
+          .success(function(response){
+            $scope.estaciones = response.network.stations
+            $rootScope.firsStation = $scope.estaciones[0]
+            console.log("JSON: ", response);
+          })
+          .error(function(error){
+            console.log("Error" + error)
+          });
+  }
 
 })
 
-.controller('ChatDetailCtrl', function($scope, $stateParams, Chats) {
-  $scope.chat = Chats.get($stateParams.chatId);
+.controller('ChatDetailCtrl', function($scope, $stateParams, $rootScope) {
+  //$scope.name = $stateParams.nameStation
+  $scope.name = $rootScope.firsStation.name
 })
 
 .controller('AccountCtrl', function($scope) {

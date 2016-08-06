@@ -1,7 +1,10 @@
 <ion-view view-title="Chats">
   <ion-content>
+    <button ng-click="getData()" class="button icon-left ion-home">
+        RELOAD
+    </button>
     <ion-list>
-      <ion-item ng-repeat="estacion in estaciones" type="item-text-wrap">
+      <ion-item ng-repeat="estacion in estaciones" type="item-text-wrap" href="#/tab/chats/{{estacion.name}}">
           <h2>Nombre: {{estacion.name}}</h2>
           <p>Espacios libres - {{estacion.empty_slots}}</p>
           <p>Bicicletas disponibles - {{estacion.free_bikes}}</p>
